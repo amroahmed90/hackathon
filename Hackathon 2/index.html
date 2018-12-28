@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Empty</title>
+        <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+        <header>
+            <input id="search" type="text" name="name" value="" placeholder="Search products...">
+        </header>
+        <div id="container" class="row">
+
+
+            <div id="navMenu" class="col-md-4">
+                <select name="books">
+                    <option id="books" selected>Books on Sale</option>
+                    <option id="confessions">Confessions</option>
+                    <option id="freakonomics">Freakonomics</option>
+
+                </select>
+
+                <select name="musics">
+                    <option id="musics" selected>Music on Sale</option>
+                    <option id="esmaani">Esmaani</option>
+                    <option id="yanni">In My Time</option>
+                </select>
+                <button id="showall" type="button" name="button">Show All Products</button>
+            </div><!--end of div#nav-->
+
+            <div id="content">
+                <h1>Please sellect what to show from the navigation bar.</h1>
+                <div id="music_1" class="product">
+
+                    <div class="name"></div>
+
+                    <div class="category"></div>
+
+                    <div class="price"></div>
+
+                    <div class="points"></div>
+
+                    <div class="image"></div>
+
+                </div><!--end of div#music_1-->
+
+                <div id="music_2" class="product">
+
+                    <div class="name"></div>
+
+                    <div class="category"></div>
+
+                    <div class="price"></div>
+
+                    <div class="points"></div>
+
+                    <div class="image"></div>
+
+                </div><!--end of div#music_2-->
+
+                <div id="book_1" class="product">
+
+                    <div class="name"></div>
+
+                    <div class="category"></div>
+
+                    <div class="price"></div>
+
+                    <div class="points"></div>
+
+                    <div class="image"></div>
+
+                </div><!--end of div#book_1-->
+
+                <div id="book_2" class="product">
+
+                    <div class="name"></div>
+
+                    <div class="category"></div>
+
+                    <div class="price"></div>
+
+                    <div class="points"></div>
+
+                    <div class="image"></div>
+
+                </div><!--end of div#book_2-->
+
+            </div><!--end of div#content-->
+
+            <footer></footer>
+
+        </div><!--end of div#container-->
+
+
+
+        <script>
+            var book1 = {
+                div: "book_1",
+                name: "Confessions of an Economic Hitman",
+                category: "Biography-Politics",
+                price: 24.99,
+                selling_points:["Cairo: City Stars, West ElBalad", "Alexandria: Mahatet El-Raml", "Mansoura: Dar Al-ketab"],
+                picture_url: "https://theredphoenix.files.wordpress.com/2011/11/2965859_f520.jpg"
+            }
+
+            var book2 = {
+                div:"book_2",
+                name: "Freakonomics",
+                category: "Economics-Politics-Psycology-Sociolog",
+                price: 39.99,
+                selling_points:["Cairo: City Stars, West ElBalad", "Alexandria: Mahatet El-Raml", "Mansoura: Dar Al-ketab"],
+                picture_url: "http://cdn.collider.com/wp-content/image-base/Movies/F/Freakonomics/freakonomics_book_cover_001.jpg"
+            }
+
+            var music1 = {
+                div: "music_1",
+                name: "Esmaani Album, By Hamza Namira 2014",
+                category: "Arabic Music",
+                price: 9.99,
+                selling_points:["Cairo: City Stars, West ElBalad", "Alexandria: Mahatet El-Raml", "Mansoura: Dar Al-ketab"],
+                picture_url: "http://4.bp.blogspot.com/-MobmFWrjLN4/VIm9w_S02SI/AAAAAAAAA_0/B8KFyjgLp54/s1600/PhotoAlbum.jpg"
+            }
+
+            var music2 = {
+                div: "music_2",
+                name: "In My Time, By Yanni 1993",
+                category: "Arabic Music",
+                price: 19.99,
+                selling_points:["Cairo: City Stars, West ElBalad", "Alexandria: Mahatet El-Raml", "Mansoura: Dar Al-ketab"],
+                picture_url: "http://ecx.images-amazon.com/images/I/61inUAoW5DL._SL1083_.jpg"
+            }
+
+            var arr_book=[book1,book2];
+            var arr_album=[music1,music2];
+
+            var products = {
+                books: arr_book,
+                albums:arr_album
+            }
+
+
+            // function divFactory(obj) {
+            //     var div= $('<div></div>').attr('id', obj.div)
+            //     div.append('<div class="name"></div>');
+            //     div.append('<div class="category"></div>');
+            //     div.append('<div class="price"></div>');
+            //     div.append('<div class="points"></div>');
+            //     div.append('<div class="image"></div>');
+            //     $('#content').append(div);
+            // }
+
+
+
+            function add_to_page(obj) {
+                // divFactory(obj);
+                $("#"+obj.div+" .name").html(obj.name);
+                $("#"+obj.div+" .category").html("<b>Category: </b>"+obj.category);
+                $("#"+obj.div+" .price").html("<b>Price: </b>$"+obj.price);
+                $("#"+obj.div+" .points").html('<b>Selling Pionts: </b> <li>'+obj['selling_points'][0]+'</li><li>'+obj['selling_points'][1]+'</li><li>'+obj['selling_points'][2]+'</li>');
+                $("#"+obj.div+" .image").html('<img src="'+obj.picture_url+'"/>');
+            }
+
+            add_to_page(book1);
+            add_to_page(book2);
+            add_to_page(music1);
+            add_to_page(music2);
+
+
+            $('#music_1').hide();
+            $('#music_2').hide();
+            $('#book_1').hide();
+            $('#book_2').hide();
+
+            $('#showall').on('click',function () {
+                for (var i = 0; i < arr_book.length; i++) {
+                    $('#'+arr_book[i].div).show();
+                    add_to_page(arr_book[i])
+                }
+                for (var i = 0; i < arr_album.length; i++) {
+                    $('#'+arr_album[i].div).show();
+                    add_to_page(arr_album[i])
+                }
+                $('h1').hide();
+            })
+
+            $('select').on('change', function (e) {
+                var optionSelected = $("option:selected", this);
+                var valueSelected = this.value;
+                console.log(optionSelected);
+                console.log(valueSelected);
+                if (valueSelected==="Books on Sale") {
+                    $('#book_1').show();
+                    $('#book_2').show();
+                    $('#music_1').hide();
+                    $('#music_2').hide();
+                    $('h1').hide();
+                }
+                if (valueSelected==="Music on Sale") {
+                    $('#book_1').hide();
+                    $('#book_2').hide();
+                    $('#music_1').show();
+                    $('#music_2').show();
+                    $('h1').hide();
+                }
+
+
+                else if (valueSelected==="Confessions") {
+                    $('#book_1').show();
+                    $('#book_2').hide();
+                    $('#music_1').hide();
+                    $('#music_2').hide();
+                    $('h1').hide();
+                }
+                else if (valueSelected==="Freakonomics") {
+                    $('#book_1').hide();
+                    $('#book_2').show();
+                    $('#music_1').hide();
+                    $('#music_2').hide();
+                    $('h1').hide();
+                }
+                else if (valueSelected==="Esmaani") {
+                    $('#book_1').hide();
+                    $('#book_2').hide();
+                    $('#music_1').show();
+                    $('#music_2').hide();
+                    $('h1').hide();
+                }
+                else if (valueSelected==="In My Time") {
+                    $('#book_1').hide();
+                    $('#book_2').hide();
+                    $('#music_1').hide();
+                    $('#music_2').show();
+                    $('h1').hide();
+                }
+
+
+
+
+            });
+
+            $('#search').on('keypress',function (e) {
+                var total = $('#search')[0].value;
+                console.log(total);
+                if (e.which===13) {
+                    var check = function(){
+                                var v1 = book1.name.toLowerCase().search(total.toLowerCase());
+                                var v2 = book2.name.toLowerCase().search(total.toLowerCase());
+                                var v3 = music1.name.toLowerCase().search(total.toLowerCase());
+                                var v4 = music2.name.toLowerCase().search(total.toLowerCase());
+                                console.log(v1,"",v2,"",v3,"",v4);
+                                if(v1!==-1&&v2===-1&&v3===-1&&v4===-1){
+                                    $('#music_1').hide();
+                                    $('#music_2').hide();
+                                    $('#book_1').show();
+                                    $('#book_2').hide();
+                                    $('h1').hide();
+                                }
+
+                                else if (v1===-1&&v2!==-1&&v3===-1&&v4===-1) {
+                                    $('#music_1').hide();
+                                    $('#music_2').hide();
+                                    $('#book_1').hide();
+                                    $('#book_2').show();
+                                    $('h1').hide();
+                                }
+                                else if (v1===-1&&v2===-1&&v3!==-1&&v4===-1) {
+                                    $('#music_1').show();
+                                    $('#music_2').hide();
+                                    $('#book_1').hide();
+                                    $('#book_2').hide();
+                                    $('h1').hide();
+                                }
+                                else if (v1===-1&&v2===-1&&v3===-1&&v4!==-1) {
+                                    $('#music_1').hide();
+                                    $('#music_2').show();
+                                    $('#book_1').hide();
+                                    $('#book_2').hide();
+                                    $('h1').hide();
+                                }
+                                else {
+                                    $('h1').show().text('Match not found!');
+                                    $('#music_1').hide();
+                                    $('#music_2').hide();
+                                    $('#book_1').hide();
+                                    $('#book_2').hide();
+                                }
+                                };
+                        check();
+                        $('#search')[0].value="";
+                }
+
+            })
+
+        </script>
+    </body>
+</html>

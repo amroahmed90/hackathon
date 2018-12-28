@@ -1,0 +1,55 @@
+#navMenu ul{
+    margin: 0;
+    padding: 0;
+}
+
+#navMenu li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+    position: relative;
+    background-color: darksalmon;
+    margin-bottom: 40px;
+}
+
+#navMenu ul li a{
+    text-align: center;
+    text-decoration: none;
+    height: 32px;
+    width: 150px;
+    display: block;
+    font-family: fantasy;
+    color: darkred;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+#navMenu ul ul{
+    position: absolute;
+    visibility: hidden;
+    top: 30px;
+}
+
+#navMenu ul li:hover ul{
+    visibility: visible;
+}
+
+#navMenu li:hover{
+    background-color: lightblue;
+    color: black;
+    font-family: sans-serif;
+}
+
+#navMenu ul li:hover ul li a:hover{
+    background-color: lightpink;
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.clearFloat{
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
